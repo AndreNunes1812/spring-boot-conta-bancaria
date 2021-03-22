@@ -18,8 +18,8 @@ public class ContaCorrenteService {
 	
 		
 	@Value("${codigo.agencia}")
-	private String codigoAgencia;	
-	
+	private String codigoAgencia;
+		
 	public List<ContaCorrente> buscar() {
 		
 		return contaRepository.findAll();	

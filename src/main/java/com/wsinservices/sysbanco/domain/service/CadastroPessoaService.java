@@ -1,16 +1,11 @@
 package com.wsinservices.sysbanco.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.wsinservices.sysbanco.domain.exception.NegocioException;
-import com.wsinservices.sysbanco.domain.model.ContaCorrente;
 import com.wsinservices.sysbanco.domain.model.Pessoa;
-import com.wsinservices.sysbanco.domain.repository.ContaCorrenteRepository;
 import com.wsinservices.sysbanco.domain.repository.PessoaRepository;
-
-
 
 @Service
 public class CadastroPessoaService {
@@ -20,7 +15,6 @@ public class CadastroPessoaService {
 	
 	@Autowired
 	public ContaCorrenteService contaCorrenteService;
-
 
 	
 	public Pessoa salvar(Pessoa pessoa) {
@@ -40,6 +34,17 @@ public class CadastroPessoaService {
 		contaCorrenteService.criar(pessoaSalva);
 		
 		return pessoaSalva ; 
+	}
+	
+	public Pessoa obterPesssoa(Long codigo) {
+		
+		Pessoa pessoaObtida = pessoaRepository.findById(codigo).get();
+		
+		if (pessoaObtida == null) {
+			throw new NegocioException("Pessoa codigo codigo:"+codigo+" não está disponivel na base de dados.");
+		}
+		
+		return pessoaObtida;
 	}
 	
 }

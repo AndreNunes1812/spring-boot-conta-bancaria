@@ -72,7 +72,7 @@ public class PessoaControllerTest {
 		given()
 			.accept(ContentType.JSON)
 		.when()
-			.get("/filmes/{codigo}", 5L)
+			.get("/pessoas/{codigo}", 5L)
 		.then()
 			.statusCode(HttpStatus.NOT_FOUND.value());
 	}

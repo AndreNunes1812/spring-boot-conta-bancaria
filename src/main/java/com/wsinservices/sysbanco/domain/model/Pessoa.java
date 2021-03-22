@@ -10,8 +10,6 @@ import javax.validation.constraints.Size;
 @Entity
 public class Pessoa {	
 	
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -26,7 +24,18 @@ public class Pessoa {
 	
 	private Integer score;
 	
+	public Pessoa() {}
 	
+	
+	public Pessoa(Long id, @NotBlank String tipo, @NotBlank @Size(max = 14) @Size(min = 11) String documento,
+			Integer score) {
+	
+		this.id = id;
+		this.tipo = tipo;
+		this.documento = documento;
+		this.score = score;
+	}
+
 	public Long getId() {
 		return id;
 	}

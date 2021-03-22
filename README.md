@@ -7,22 +7,28 @@ https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-
 ### Consulta API
 
 #### Pessoas
-  localhost:8080/pessoas
-  localhost:8080/pessoas/codigo
+ GET  localhost:8080/pessoas
+ GET  localhost:8080/pessoas/codigo
   
   
-  localhost:8080/pessoas
+ POST localhost:8080/pessoas
   
+  ** Pessoa Fisica
   { 
     "tipo":"PF",
     "documento":"11 dig"
   }
   
+  ** Pessoa Juridica
+  { 
+    "tipo":"PJ",
+    "documento":"14 dig"
+  }
   
   
 #### Contas
 
-localhost:8080/contas
+GET localhost:8080/contas
   
   
   
